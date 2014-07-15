@@ -1,19 +1,24 @@
 ## This is a module for Breach.cc browser.
 
+It is the start of a sync'd new tab page, such as how Google Chroms synch's your browsing experience.
 
 ### Preview
 
 It looks like this:
-![](http://d.pr/i/azYW+)
+![](http://i.imgur.com/H0TrDGH.png)
+
+And has a cool user menu being developed:
+
+![](http://i.imgur.com/HX1JMFM.png)
 
 ### Install
 
- - Right Click in breach browser and click "Configure Modules"
+ - Goto ```breach://modules```
  - In the input box type:
   
   ```
-  github:RobinMalfait/mod_newtab_clock
+  github:matthewjamesr/mod_newtab_clock
   ```
   
 
-### Done, hope you enjoy this :)
+### Done, hope you enjoy this :). Be sure to check back often for updates.
