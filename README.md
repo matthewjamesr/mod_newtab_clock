@@ -2,6 +2,8 @@
 
 It is the start of a sync'd new tab page, such as how Google Chroms synch's your browsing experience.
 
+Currently this module will be renamed to ```mod_synch```. It will incorporate a synched account across multiple systems with a tag-based bookmark system. Top tags appear at the top right of the page.
+
 ### Preview
 
 It looks like this:
