@@ -20,6 +20,9 @@ body {
     text-align: center;
     -webkit-transition: none;
     -webkit-transform: rotate3d(0,0,0,0);
+}
+
+.shadowWrapper {
     box-shadow: 2px 15px 60px 1px #989da1;
 }
 
