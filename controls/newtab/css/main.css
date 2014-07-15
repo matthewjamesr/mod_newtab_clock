@@ -20,7 +20,6 @@ body {
     text-align: center;
     -webkit-transition: none;
     -webkit-transform: rotate3d(0,0,0,0);
-    box-shadow: 2px 15px 60px 1px #989da1;
 
 }
 
@@ -44,6 +43,5 @@ body {
     margin: 30px 0;
     font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue','Open-Light',sans-serif;
     color: rgba(255, 255, 255, 0.3);
-    box-shadow: 2px 15px 60px 1px #989da1;
 
 }
