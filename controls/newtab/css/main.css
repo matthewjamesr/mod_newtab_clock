@@ -3,15 +3,50 @@ body {
     font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue','Open-Light',sans-serif;
     background-color: rgb(34, 36, 37);
     margin: auto;
+    width: 100%;
     height: 310px;
-
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
 }
 
+.user {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+    #userImage {
+        height: 50px;
+        width: 50px;
+        float: right;
+    }
+        #userMenu, .userMenu_li {
+            float: right;
+            margin-left: 135px;
+            margin-top: 10px;
+            font-size: 1.3em;
+            text-align: center;
+            font-weight: normal;
+            font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue','Open-Light',sans-serif;
+            color: #3e3e3e;
+        }
+
+    #mainMenu, li.mainMenu {
+        float: right;
+        list-style-type: none;
+        display: inline-block;
+        margin: 5px 10px 0px 10px;
+        font-size: 1.2em;
+        text-align: center;
+        font-weight: normal;
+        font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue','Open-Light',sans-serif;
+        color: #e3e3e3;
+    }
+
 #time {
     font-size: 12em;
     text-align: center;
+    width: 950px;
+    margin: 0 auto;
 }
 
 #time span {
@@ -22,8 +57,20 @@ body {
     -webkit-transform: rotate3d(0,0,0,0);
 }
 
-.shadowWrapper {
-    box-shadow: 2px 15px 60px 1px #989da1;
+.border {
+    border-bottom: 5px solid #05B5F0;
+    border-top: 5px solid #05B5F0;
+    padding-left: 5px;
+    padding-right: 5px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+    .border-alt {
+    border-bottom: 5px solid #05B5F0;
+    padding-left: 5px;
+    padding-right: 5px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
 }
 
 #forecast ul li {
@@ -43,8 +90,25 @@ body {
     font-size: 1.3em;
     text-align: center;
     font-weight: normal;
-    margin: 30px 0;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 150px;
     font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue','Open-Light',sans-serif;
     color: rgba(255, 255, 255, 0.3);
 
+}
+
+.modules {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding-bottom: 5px;
+    width: 170px;
+    font-size: 1.0em;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'HelveticaNeue-UltraLight','Helvetica Neue UltraLight','Helvetica Neue','Open-Light',sans-serif;
+    color: rgba(255, 255, 255, 0.3);
 }

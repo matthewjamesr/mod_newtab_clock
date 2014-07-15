@@ -2,18 +2,50 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>New Tab</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-controller="MainCtrl">
-    <div class="shadowWrapper" id="time">
+
+    <div class="user dropdown">
+        <a data-toggle="dropdown" data-target="#">
+            <img src="demo user/userImage.jpg" alt="..." class="img-circle" id="userImage">
+        </a>
+        <ul class="dropdown-menu" id="userMenu" role="menu" aria-labelledby="dLabel">
+            <li class="optionHover"><a href="#">my profile</a></li>
+            <li><a href="#">settings</a></li>
+            <li><a href="#">favs</a></li>
+            <li class="divider"></li>
+            <li><a href="#">signout</a></li>
+        </ul>
+
+        <ul id="mainMenu">
+            <li class="mainMenu">link</li>
+            <li class="mainMenu">link</li>
+            <li class="mainMenu">link</li>
+            <li class="mainMenu">link</li>
+        </ul>
+
+    </div>
+
+
+    <div class="border" id="time">
         <span class="hour">{{ date.tz | date:'HH' }}</span>
         <span class="minute">{{ date.tz | date:'mm' }}</span>
         <span class="second">{{ date.tz | date:'ss' }}</span>
     </div>
-    <div class="date">{{ date.tz | date:'d MM yyyy' }}</div>
+
+    <div class="date border-alt" align="center">{{ date.tz | date:'d MM yyyy' }}</div>
+
+    <!-- <div class="modules border">
+        <a href="breach://modules">View Modules</a>
+    </div> -->
 
     <script src="./js/vendor/angular.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
 </body>
 </html>
