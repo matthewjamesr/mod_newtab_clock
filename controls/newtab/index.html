@@ -15,17 +15,25 @@
         </a>
         <ul class="dropdown-menu" id="userMenu" role="menu" aria-labelledby="dLabel">
             <li class="optionHover"><a href="#">my profile</a></li>
-            <li><a href="#">settings</a></li>
+            <li><a href="#" target="_blank">modules</a></li>
             <li><a href="#">favs</a></li>
             <li class="divider"></li>
             <li><a href="#">signout</a></li>
         </ul>
 
+        <!-- Main Menu used for Top tags -->
         <ul id="mainMenu">
-            <li class="mainMenu">link</li>
-            <li class="mainMenu">link</li>
-            <li class="mainMenu">link</li>
-            <li class="mainMenu">link</li>
+            <li class="mainMenu tag">tech</li>
+            <li class="mainMenu tag">food</li>
+            <li class="mainMenu tag">home</li>
+            <li class="mainMenu tag">work</li>
+        </ul>
+
+        <!-- Tag Dropdowns -->
+        <ul class="dropdown-menu-tags" role="menu" aria-labelledby="techtags" id="techMenu">
+            <li><a class="tags" href="#">my profile</a></li>
+            <li><a class="tags" href="#">modules</a></li>
+            <li><a class="tags" href="#">favs</a></li>
         </ul>
 
     </div>
@@ -47,5 +55,17 @@
     <script src="./js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        //ready tag mouseover functions
+        $(document).ready(function(){
+            $(".tag").click(function(){
+                $("#techMenu").toggle(100);
+            });
+            $("#techMenu").mouseleave(function(){
+                $("#techMenu").hide(50);
+            });
+        });
+    </script>
 </body>
 </html>
