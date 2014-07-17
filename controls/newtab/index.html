@@ -11,14 +11,14 @@
 
     <div class="dropdown user">
         <a data-toggle="dropdown" data-target="#" id="dropdownMenu1">
-            <span id="userAvatar"><img src="demo user/userImage.jpg" alt="..." class="img-circle" id="userImage"></span>
+            <span id="userAvatar"><img src="login.png" alt="..." class="img-circle" id="userImage"></span>
         </a>
         <!-- Main Menu used for Top tags -->
         <ul id="mainMenu">
             
         </ul>
         <ul class="dropdown-menu" id="userMenu">
-            <li class="optionHover"><a href="#">my profile</a></li>
+            <li class="optionHover"><a href="#" role="button" data-toggle="modal" data-target=".userProfile">my profile</a></li>
             <li><a href="#" target="_blank">modules</a></li>
             <li><a href="#">favs</a></li>
             <li class="divider"></li>
@@ -26,6 +26,53 @@
         </ul>
 
 
+    </div>
+
+
+    <!-- Login Modal -->
+    <div class="modal fade userLogin blackText" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">breach signin</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="input-group col-sm-offset-2" style="width: 400px; text-align: center;" align="center">
+                  <div class="input-group-addon">@</div>
+                  <input class="form-control" type="text" placeholder="username" id="submitUsername">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-5 col-sm-7">
+                  <button type="submit" class="btn btn-primary" id="submitSignon">Sign in</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade userProfile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -69,7 +116,7 @@
             
         }
         else if(localStorage.breach_user == null) {
-           $("#userMenu").html('<li><a href="#" id="signin">signin</a></li>');
+           $("#userMenu").html('<li><a href="#" id="signin" role="button" data-toggle="modal" data-target=".userLogin">signin</a></li>');
         }
     
     </script>
@@ -86,8 +133,9 @@
                 $("#techMenu").hide(50);
             });
 
-            $('#signin').click(function() {
-                var username = prompt("enter your breach username....")
+            $('#submitSignon').click(function() {
+                var username = document.getElementById('submitUsername').value;
+                $('.userLogin').modal('hide');
                 localStorage.setItem('breach_auth_user', username);
                 connect('mysql', localStorage.breach_auth_user);
             });
