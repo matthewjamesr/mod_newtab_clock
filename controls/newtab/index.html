@@ -9,34 +9,33 @@
 </head>
 <body ng-controller="MainCtrl">
 
-    <div class="user dropdown">
-        <a data-toggle="dropdown" data-target="#">
-            <img src="demo user/userImage.jpg" alt="..." class="img-circle" id="userImage">
+    <div class="dropdown user">
+        <a data-toggle="dropdown" data-target="#" id="dropdownMenu1">
+            <span id="userAvatar"><img src="demo user/userImage.jpg" alt="..." class="img-circle" id="userImage"></span>
         </a>
-        <ul class="dropdown-menu" id="userMenu" role="menu" aria-labelledby="dLabel">
+        <!-- Main Menu used for Top tags -->
+        <ul id="mainMenu">
+            
+        </ul>
+        <ul class="dropdown-menu" id="userMenu">
             <li class="optionHover"><a href="#">my profile</a></li>
             <li><a href="#" target="_blank">modules</a></li>
             <li><a href="#">favs</a></li>
             <li class="divider"></li>
-            <li><a href="#">signout</a></li>
+            <li id="authMenu"><a href="#" id="signin">signin</a></li>
         </ul>
 
-        <!-- Main Menu used for Top tags -->
-        <ul id="mainMenu">
-            <li class="mainMenu tag">tech</li>
-            <li class="mainMenu tag">food</li>
-            <li class="mainMenu tag">home</li>
-            <li class="mainMenu tag">work</li>
-        </ul>
-
-        <!-- Tag Dropdowns -->
-        <ul class="dropdown-menu-tags" role="menu" aria-labelledby="techtags" id="techMenu">
-            <li><a class="tags" href="#">my profile</a></li>
-            <li><a class="tags" href="#">modules</a></li>
-            <li><a class="tags" href="#">favs</a></li>
-        </ul>
 
     </div>
+
+
+
+    <!-- Tag Dropdowns -->
+    <ul class="dropdown-menu-tags" role="menu" aria-labelledby="techtags" id="techMenu">
+        <li><a class="tags" href="#">my profile</a></li>
+        <li><a class="tags" href="#">modules</a></li>
+        <li><a class="tags" href="#">favs</a></li>
+    </ul>
 
 
     <div class="border" id="time">
@@ -55,52 +54,50 @@
     <script src="./js/app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script src="https://login.persona.org/include.js"></script>
+
+    <script src="synch.js"></script>
+    <!-- Main -->
+    <script type="text/javascript">
+
+    var breach_user = JSON.parse(localStorage.getItem("breach_user"));
+
+      if(localStorage.breach_user != null) {
+            $('#userAvatar').html("<img src='"+breach_user.imagePath +"' alt='...' class='img-circle' id='userImage'>");
+            $("#authMenu").html('<a href="#" id="signout">signout</a>');
+            $("#mainMenu").html('<li class="mainMenu tag">tech</li><li class="mainMenu tag">food</li><li class="mainMenu tag">home</li><li class="mainMenu tag">work</li>');
+            
+        }
+        else if(localStorage.breach_user == null) {
+           $("#userMenu").html('<li><a href="#" id="signin">signin</a></li>');
+        }
+    
+    </script>
+
 
     <script type="text/javascript">
         //ready tag mouseover functions
         $(document).ready(function(){
-            $(".tag").click(function(){
+
+            $(".mainMenu").click(function(){
                 $("#techMenu").toggle(100);
             });
             $("#techMenu").mouseleave(function(){
                 $("#techMenu").hide(50);
             });
+
+            $('#signin').click(function() {
+                var username = prompt("enter your breach username....")
+                localStorage.setItem('breach_auth_user', username);
+                connect('mysql', localStorage.breach_auth_user);
+            });
+
+            $('#signout').click(function(e) {
+                localStorage.removeItem("breach_user");
+                window.location.reload();
+            });
         });
     </script>
 
-  <!-------------------------------------------------------------------------
-  1) Create some html content that can be accessed by jquery
-  -------------------------------------------------------------------------->
-  <h2> Client example </h2>
-  <h3>Output: </h3>
-  <div id="output">this element will be accessed by jquery and this text replaced</div>
-
-  <script id="source" language="javascript" type="text/javascript">
-
-  $(function () 
-  {
-    //-----------------------------------------------------------------------
-    // 2) Send a http request with AJAX http://api.jquery.com/jQuery.ajax/
-    //-----------------------------------------------------------------------
-    $.ajax({                                      
-      url: 'http://breach.matthewreichardt.com/data/request/synch.php',                  //the script to call to get data          
-      data: "",                        //you can insert url argumnets here to pass to api.php
-                                       //for example "id=5&parent=6"
-      dataType: 'json',                //data format      
-      success: function(data)          //on recieve of reply
-      {
-        var id = data[0];              //get id
-        var vname = data[1];           //get name
-        //--------------------------------------------------------------------
-        // 3) Update html content
-        //--------------------------------------------------------------------
-        $('#output').html("<b>id: </b>"+id+"<b> name: </b>"+vname); //Set output element html
-        //recommend reading up on jquery selectors they are awesome 
-        // http://api.jquery.com/category/selectors/
-      } 
-    });
-  }); 
-
-  </script>
 </body>
 </html>
